@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Check mongo app</title>
+    <link rel="stylesheet" href="static/css/style.css" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="dfrow jcenter acenter">
+    <div class="task-container dfcol acenter">
+        <div class="dfrow acenter view-buttons">
+            <a href="/" class="remaining <%= onlyComp ? "light-btn-top" : "dark-btn-top" %>">
+                Remaining
+            </a>
+            <a href="/completed" class="completed <%= !onlyComp ? "light-btn-top" : "dark-btn-top" %>">
+                Completed
+            </a>
+        </div>
+        
+        <h2>Task Check List</h2>
+        <div class="task">
+            <form action="/" method="POST" class="task-header dfrow acenter">
+                <input type="text" name="Description">
+                <button type="submit">
+                    <span class="material-icons">
+                        add
+                    </span>
+                </button>
+            </form>
+            <ul class="task-list">
+                <% tasks.forEach(task => { %>
+                    <% if (onlyComp && task.Completed) {%>
+                <li class="task-list-item dfrow acenter">
+                    <a href="/edit/<%= task._id %>" class="edit">
+                        <span class="material-icons">
+                            <%= task.Completed ? "done" : "check_box_outline_blank" %>
+                        </span>
+                    </a>
+                    <div class="task-list-item-name"><p><%= task.Description %></p></div>
+                    <a href="/remove/<%= task._id %>" class="remove">
+                        <span class="material-icons">
+                            delete
+                        </span>
+                    </a>
+                </li>
+                <% } %>
+                <% if (!onlyComp && !task.Completed) {%>
+                    <li class="task-list-item dfrow acenter">
+                        <a href="/edit/<%= task._id %>" class="edit">
+                            <span class="material-icons">
+                                <%= task.Completed ? "done" : "check_box_outline_blank" %>
+                            </span>
+                        </a>
+                        <div class="task-list-item-name">
+                           <p> <%= task.Description %></p>
+                        </div>
+                        <a href="/remove/<%= task._id %>" class="remove">
+                            <span class="material-icons">
+                                delete
+                            </span>
+                        </a>
+                    </li>
+                    <% console.log(task)} %>
+                
+                <% }) %>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
