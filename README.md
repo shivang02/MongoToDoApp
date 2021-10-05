@@ -31,20 +31,40 @@ Task Check list App
 ## Screenshots
 
   - Landing (View remaining Tasks)<br><br>
+    To get all the remaining tasks, GET request to ```http://localhost:3000/``` or open it in the browser to use the web app.  <br><br> 
     <img src="./screenshots/desktop_1.png" alt="Screenshot 1  shows the list of remaining tasks" width="400" style= "background-color: white">
     <br><br>
   - View Completed Tasks<br><br>
+    To get all the completed tasks, GET request to ```http://localhost:3000/completed``` or open it in the browser to use the web app.  <br><br> 
     <img src="./screenshots/desktop_2.png" alt="Screenshot 2  shows the list of completed tasks" width="400" style= "background-color: white">
     <br><br>
   - Add a new Task<br><br>
+    To add a new task, POST a request similar to the one mentioned below to ```http://localhost:3000/``` or open it in the browser to use the web app.  
+    ```html
+    {
+      "Description": "Task 1",
+      "Completed": false
+    }
+    <!--OR-->
+    {
+      "Description": "Buy Groceries"
+    }
+    ```
+    <br>
     1. <img src="./screenshots/desktop_3_1.png" alt="Screenshot 3 shows how to add a new task" width="400" style= "background-color: white">
     2. <img src="./screenshots/desktop_3_2.png" alt="Screenshot 4 shows the new task was added to the list" width="400" style= "background-color: white">
     <br><br>
   - Delete a task<br><br>
+    To delete an existing task, GET request to ```http://localhost:3000/remove/id``` where id is of the task to be deleted  
+    or  
+    locate the task in the task list and click on the trashcan button when using the web app.  <br><br> 
     1. <img src="./screenshots/desktop_4_1.png" alt="Screenshot 5 shows how to delete the task by clicking on the delete button" width="400" style= "background-color: white">
     2. <img src="./screenshots/desktop_4_2.png" alt="Screenshot 6 shows that the task was deleted from the list" width="400" style= "background-color: white">
     <br><br>
-  - Update a task<br><br>  
+  - Update a task<br><br>
+    To update an existing task and set it as completed, GET request to ```http://localhost:3000/edit/id``` where id is of the task to be updated  
+    or  
+    locate the task in the task list and click on the checkbox left to the task when using the web app.  <br><br>  
     1. <img src="./screenshots/desktop_5_1.png" alt="Screenshot 7 shows how to update the status of an incomplete task to complete by clicking on the complete checkbox" width="400" style= "background-color: white">
     2. <img src="./screenshots/desktop_5_2.png" alt="Screenshot 8 shows that the task was removed from the 'Remaining' tasks list" width="400" style= "background-color: white">
     3. <img src="./screenshots/desktop_5_3.png" alt="Screenshot 9 shows that the task was added to the 'Completed' tasks list" width="400" style= "background-color: white">
