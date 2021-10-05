@@ -24,8 +24,6 @@ mongoose.connect(
 ).then(
     () => {
         console.log("Datebase connected");
-        const port = process.env.PORT || 3000;
-        app.listen(port, () => console.log("Server Up and running"));
     }
 ).catch(
     err => console.log(err)
@@ -81,3 +79,5 @@ app
             res.redirect("back");
         });
 });
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log("Server Up and running"));
