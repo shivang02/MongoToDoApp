@@ -14,7 +14,7 @@ app.use(express.json());
 
 
 //connection to db
-const DB = process.env.MONGO_CONNECTION ;
+const DB = process.env.MONGODB_URI ;
 
 mongoose.connect(
     DB, {
